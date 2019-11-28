@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <xerces-path>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</xerces-path>
+    <xerces-install-path>$(xerces-path)out\install\$(Platform)-$(Configuration)-Static\</xerces-install-path>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(xerces-install-path)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(xerces-install-path)\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>xerces-c_3D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="xerces-install-path">
+      <Value>$(xerces-path)</Value>
+    </BuildMacro>
+     <BuildMacro Include="xerces-install-path">
+      <Value>$(xerces-install-path)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

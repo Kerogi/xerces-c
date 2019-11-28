@@ -1,0 +1,40 @@
+﻿{
+    "configurations": [
+        {
+            "name": "x64-Debug-Static",
+            "generator": "Ninja",
+            "configurationType": "Debug",
+            "inheritEnvironments": [ "msvc_x64_x64" ],
+            "buildRoot": "${projectDir}\\out\\build\\${name}",
+            "installRoot": "${projectDir}\\out\\install\\${name}",
+            "cmakeCommandArgs": "-Dnetwork-accessor=winsock   -Dtranscoder=windows  -Dmessage-loader=inmemory  -Dxmlch-type=wchar_t  -Dmfc-debug:BOOL=OFF -Dmutex-manager=nothreads  ",
+            "buildCommandArgs": "-v",
+            "ctestCommandArgs": "",
+            "variables": [
+                {
+                    "name": "BUILD_SHARED_LIBS",
+                    "value": "False",
+                    "type": "BOOL"
+                }
+            ]
+        },
+        {
+            "name": "x64-Release-Static",
+            "generator": "Ninja",
+            "configurationType": "Release",
+            "buildRoot": "${projectDir}\\out\\build\\${name}",
+            "installRoot": "${projectDir}\\out\\install\\${name}",
+            "cmakeCommandArgs": "-Dnetwork-accessor=winsock   -Dtranscoder=windows  -Dmessage-loader=inmemory  -Dxmlch-type=wchar_t  -Dmfc-debug:BOOL=OFF -Dmutex-manager=nothreads  ",
+            "buildCommandArgs": "-v",
+            "ctestCommandArgs": "",
+            "inheritEnvironments": [ "msvc_x64_x64" ],
+            "variables": [
+                {
+                    "name": "BUILD_SHARED_LIBS",
+                    "value": "False",
+                    "type": "BOOL"
+                }
+            ]
+        }
+    ]
+}
