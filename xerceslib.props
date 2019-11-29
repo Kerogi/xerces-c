@@ -3,7 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <xerces-path>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))</xerces-path>
-    <xerces-install-path>$(xerces-path)out\install\$(Platform)-$(Configuration)-Static\</xerces-install-path>
+    <xerces-install-path>$(xerces-path)out\install\$(PlatformTarget)-$(Configuration)-Static\</xerces-install-path>
   </PropertyGroup>
   <PropertyGroup>
     <IncludePath>$(xerces-install-path)\include;$(IncludePath)</IncludePath>
@@ -11,7 +11,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>xerces-c_3D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Debug'" >xerces-c_3D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Configuration)'=='Release'" >xerces-c_3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
